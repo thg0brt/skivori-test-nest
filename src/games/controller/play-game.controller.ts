@@ -53,7 +53,7 @@ export class PlayGame {
                     coinsEarned = 5;
                     break;
                 case 'lemon':
-                    coinsEarned = 1; //the test description dont specify the points earned for 2 lemons, but i defined it as 1;
+                    coinsEarned = 1; //the test description dont specify the points earned for 2 lemons, but i decided to define it as 1;
                     break;
             }
 
