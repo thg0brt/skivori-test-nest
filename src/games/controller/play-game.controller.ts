@@ -1,12 +1,12 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 
 @Controller('games') //default route for game requests
 export class PlayGame {
 
-    @Get('play') 
+    @Post('play') //POST endpoint which contains the logic of the play method .
     async playGame() {
 
-        //Define the machine slot reels
+        //Define the slot machine reels
         const reel1 = ["cherry", "lemon", "apple", "lemon", "banana", "banana", "lemon", "lemon"];
         const reel2 = ["lemon",  "apple", "lemon", "lemon", "cherry", "apple",  "banana", "lemon"];
         const reel3 = ["lemon",  "apple", "lemon", "apple", "cherry", "lemon",  "banana", "lemon"];
@@ -16,10 +16,10 @@ export class PlayGame {
         const randomKey2 = Math.floor(Math.random() * 8);
         const randomKey3 = Math.floor(Math.random() * 8);
 
-        //create the array with the results
+        //create the array with the results of the spin.
         const results = [reel1[randomKey1], reel2[randomKey2],  reel3[randomKey3]];
-
         
+        //Logic to define how many times the fruit appears.
         var count = 0;
         var lastFruit = "";
         results.forEach((fruit) => {
@@ -76,7 +76,7 @@ export class PlayGame {
             coinsEarned = -1; //Each spin costs 1 coin.
         }
         
-        return [coinsEarned, results];
+        return [coinsEarned, results]; //returns the coins earned/lost, and the results of the spin.
     }
 
 
