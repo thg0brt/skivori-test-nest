@@ -1,7 +1,9 @@
 # Play Games - Back-End (NestJS)
 
 	A REST API back-end application using NestJS, built by Thiago Brito for Skivori FullStack Developer test.
-
+## Cloud service deploy link
+ - https://skivori-test-nest.onrender.com
+   
 ## Setup
 
 - Install the Node.js and NestJS framework
