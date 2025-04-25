@@ -7,9 +7,14 @@ import { User } from '../users.entity';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get()
+  @Get('find')
   async findAll(): Promise<User[]> {
     return this.usersService.findAll();
+  }
+
+  @Post('create')
+  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return this.usersService.create(createUserDto);
   }
 
 }
