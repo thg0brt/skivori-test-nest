@@ -16,4 +16,19 @@ export class User {
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at!: string;
+
+  @Column({ type: 'text' })
+  password!: string;
+
+  @Column({ type: 'integer', default: 0 })
+  balance!: number;
+
+  @Column({ type: 'char', length: 1, default: '' })
+  deleted!: string;
+
+  @Column({ type: 'boolean', default: true })
+  isActive!: boolean;
+
+  @Column({ type: 'timestamp', nullable: true })
+  lastLogin?: Date;
 }

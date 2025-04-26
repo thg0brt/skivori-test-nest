@@ -8,6 +8,13 @@ export class CreateUserDto {
   @IsEmail()
   email!: string;
 
+  @IsString()
+  password!: string;
+
+  @IsOptional()
+  @IsNumber()
+  balance?: number;
+
   @IsOptional()
   @IsNumber()
   favorite_game_id?: number;
