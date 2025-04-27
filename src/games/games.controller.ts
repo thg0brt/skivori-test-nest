@@ -1,7 +1,18 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Get, Post, Param} from '@nestjs/common';
+import gameData from './data/game-data.json'; //imports game-data.json
 
 @Controller('games') //default route for game requests
-export class PlayGame {
+export class GetGames {
+
+    @Get('get-games') //GET endpoint for reading all games from game-data.json
+    async getGames() {
+        return gameData; //returns the game-data.json content
+    }
+
+    @Get('search-games/:search') // GET endpoint to search games by title from game-data.json
+    async searchGames(@Param('search') search : String) {
+        return gameData.filter((game) => game.title.toLowerCase().indexOf(search.toLowerCase()) > -1 ) //searches in the game-data.json for the passed param.
+    }
 
     @Post('play') //POST endpoint which contains the logic of the play method .
     async playGame() {
@@ -78,6 +89,4 @@ export class PlayGame {
         
         return [coinsEarned, results]; //returns the coins earned/lost, and the results of the spin.
     }
-
-
 }

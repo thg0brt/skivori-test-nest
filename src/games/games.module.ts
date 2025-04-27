@@ -1,6 +1,6 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { RequestMiddleware } from './middleware/request.middleware';
-import { GetGames } from 'src/games/controller/get-games.controller';
+import { GetGames } from 'src/games/games.controller';
 import { SearchGames } from './controller/search-games.controller';
 import { PlayGame } from './controller/play-game.controller';
 
