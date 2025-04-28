@@ -34,4 +34,14 @@ export class UsersService {
 
 		return updatedUser;
   }
+
+  async customSelect(where: string, bind: any): Promise<User | null> {
+
+    const selectedUser = await this.usersRepository
+    .createQueryBuilder("user")
+    .where(where, bind)
+    .getOne()
+
+    return selectedUser;
+  }
 }
