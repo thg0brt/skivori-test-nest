@@ -23,7 +23,7 @@ export class UsersController {
     return this.usersService.findById(id);
   }
 
-  @Put('update')
+  @Put('update/:id')
   async update(@Param('id') id: number, @Body() updateUserDto:UpdateUserDto): Promise<User> {
     return this.usersService.update(id, updateUserDto);
   }
