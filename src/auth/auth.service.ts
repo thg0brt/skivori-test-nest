@@ -12,10 +12,13 @@ export class AuthService {
 
     const user = await this.usersService.customSelect(where, bind);
 
+    //If the email exist in the database, test if the password is the same
     if(user){
+        //decrypt the password to see if the passwords match
         const match = await bcrypt.compare(user.password, user_password)
 
-        if(match){
+        //return the user information if the password is correct.
+        if(match){ 
             const { password, ...result } = user;
             return result;
         }else{
